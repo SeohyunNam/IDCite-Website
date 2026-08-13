@@ -19,7 +19,7 @@ IDCite is a large-scale resource for citation-level analysis across multiple sci
 | Q1 journals sampled | 105 |
 | Data snapshot | November 2025 |
 
-## Access
+## Public Access
 
 - **Zenodo Record (Version 3):** https://doi.org/10.5281/zenodo.20796923
 - **Hugging Face:** https://huggingface.co/datasets/Daniel0315/IDCite
