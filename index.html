@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IDCite — A Large-Scale Multidisciplinary Citation Intent Dataset</title>
+<meta name="description" content="IDCite: a large-scale multidisciplinary citation-intent dataset with 1.86M citation events across 21 ESI fields, citation contexts, intent annotations, and normalized scholarly entities." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+<header class="nav" id="top">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">ID</span><span class="brand-text">Cite</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#pipeline">Pipeline</a>
+      <a href="#intents">Intents</a>
+      <a href="#fields">Fields</a>
+      <a href="#files">Files</a>
+      <a href="#access">Access</a>
+    </nav>
+    <a class="nav-cta" href="https://doi.org/10.5281/zenodo.20796923" target="_blank" rel="noopener">Get the data →</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <h1>IDCite</h1>
+      <p class="hero-sub">A Large-Scale Multidisciplinary Citation Intent Dataset for Scholarly Knowledge Discovery</p>
+      <p class="hero-abstract">
+        IDCite is a large-scale resource for citation-level analysis across multiple scientific disciplines.
+        Seed publications were selected through a journal-stratified procedure covering 21 Essential Science
+        Indicators (ESI) fields, 21 representative Web of Science categories, and 105 Q1 journals. Bibliographic
+        metadata were collected from Scopus via <em>pybliometrics</em>, citation relationships from OpenAlex, and
+        citation contexts from Semantic Scholar; citation intents were assigned automatically with a graph neural
+        network-based classifier, after which publication identifiers and scholarly entities were normalized. The
+        release contains <strong>1,857,503 citation records</strong> linking <strong>1,467,045 citing publications</strong>
+        to <strong>23,479 seed papers</strong>, together with citation contexts, intent labels, publication metadata,
+        normalized entities, and an ontology-ready knowledge graph of 3,418,433 nodes and 6,855,117 edges.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://doi.org/10.5281/zenodo.20796923" target="_blank" rel="noopener">Zenodo Record</a>
+        <a class="btn" href="https://huggingface.co/datasets/Daniel0315/IDCite" target="_blank" rel="noopener">Hugging Face</a>
+        <a class="btn" href="https://github.com/SeohyunNam/MDCite" target="_blank" rel="noopener">GitHub Code</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY STATS -->
+  <section class="section" id="overview">
+    <div class="container">
+      <h2 class="section-title">Dataset Summary</h2>
+      <p class="section-lead">A few headline numbers describe the scale of IDCite.</p>
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-num" data-count="1857503">1,857,503</div><div class="stat-label">Citation events</div></div>
+        <div class="stat-card"><div class="stat-num" data-count="1467045">1,467,045</div><div class="stat-label">Citing papers</div></div>
+        <div class="stat-card"><div class="stat-num" data-count="23479">23,479</div><div class="stat-label">Seed (cited) papers</div></div>
+        <div class="stat-card"><div class="stat-num" data-count="21">21</div><div class="stat-label">ESI fields</div></div>
+        <div class="stat-card"><div class="stat-num" data-count="105">105</div><div class="stat-label">Q1 journals sampled</div></div>
+        <div class="stat-card accent"><div class="stat-num">Nov 2025</div><div class="stat-label">Data snapshot</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIPELINE -->
+  <section class="section alt" id="pipeline">
+    <div class="container">
+      <h2 class="section-title">Construction pipeline</h2>
+      <p class="section-lead">From multidisciplinary seed selection to normalized, ready-to-use citation-event tables.</p>
+
+      <figure class="pipeline-figure">
+        <img src="assets/pipeline_figure.png" alt="Figure 1. Overview of the IDCite construction workflow, linking input sources, the processing pipeline, and released records." loading="lazy" />
+        <figcaption>Figure 1. Overview of the IDCite construction workflow — from multidisciplinary seed selection and citation harvesting to citation-event construction, semantic enrichment, entity normalization, and knowledge-graph conversion.</figcaption>
+      </figure>
+
+      <div class="sources-row">
+        <span class="src-chip">Scopus <em>metadata</em></span>
+        <span class="src-chip">WoS / 2024 JCR <em>journal selection</em></span>
+        <span class="src-chip">OpenAlex <em>citation links</em></span>
+        <span class="src-chip">Semantic Scholar <em>citation contexts</em></span>
+        <span class="src-chip">SynIntent <em>intent classifier (GNN)</em></span>
+      </div>
+
+      <ol class="pipeline">
+        <li><span class="step-n">1</span><div><h4>Journal-stratified sampling</h4><p>21 ESI fields → 21 representative WoS categories → 5 Q1 journals each (105 journals).</p></div></li>
+        <li><span class="step-n">2</span><div><h4>Seed-paper selection</h4><p>Top 5% most-cited papers retained independently within each journal → 23,479 seed papers.</p></div></li>
+        <li><span class="step-n">3</span><div><h4>Citation harvesting</h4><p>OpenAlex citation links connect 1.47M citing papers to the seed corpus.</p></div></li>
+        <li><span class="step-n">4</span><div><h4>Citation-event construction</h4><p>Each citing → seed link becomes an event carrying its citation context.</p></div></li>
+        <li><span class="step-n">5</span><div><h4>Semantic enrichment</h4><p>SynIntent (GNN-based) assigns citation intents as weak semantic supervision.</p></div></li>
+        <li><span class="step-n">6</span><div><h4>Entity normalization</h4><p>DOIs, authors, affiliations, journals, fields, and intents are normalized.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- INTENTS -->
+  <section class="section" id="intents">
+    <div class="container">
+      <h2 class="section-title">Citation intent distribution</h2>
+      <p class="section-lead">Seven canonical intents after decomposing composite labels. The distribution preserves the natural imbalance of real scholarly citations — <strong>background</strong> dominates.</p>
+      <div class="chart-split">
+        <div class="chart-box"><canvas id="intentChart" height="260"></canvas></div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Canonical intent</th><th class="num">Count</th><th class="num">%</th></tr></thead>
+            <tbody>
+              <tr><td><span class="dot i0"></span>background</td><td class="num">1,660,899</td><td class="num">88.20</td></tr>
+              <tr><td><span class="dot i1"></span>uses</td><td class="num">131,827</td><td class="num">7.00</td></tr>
+              <tr><td><span class="dot i2"></span>similarities</td><td class="num">45,753</td><td class="num">2.43</td></tr>
+              <tr><td><span class="dot i3"></span>motivation</td><td class="num">21,555</td><td class="num">1.14</td></tr>
+              <tr><td><span class="dot i4"></span>differences</td><td class="num">15,617</td><td class="num">0.83</td></tr>
+              <tr><td><span class="dot i5"></span>future work</td><td class="num">4,654</td><td class="num">0.25</td></tr>
+              <tr><td><span class="dot i6"></span>extends</td><td class="num">2,813</td><td class="num">0.15</td></tr>
+            </tbody>
+          </table>
+          <p class="note">Intent labels are model-generated (SynIntent, Strict Acc. 0.67 / Weak Acc. 0.80 on MultiCite) and released as weak supervision — not manually curated gold labels.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIELDS -->
+  <section class="section alt" id="fields">
+    <div class="container">
+      <h2 class="section-title">Seed papers across 21 ESI fields</h2>
+      <p class="section-lead">Journal-stratified sampling preserves disciplinary heterogeneity; field counts are not resampled to be balanced.</p>
+      <div class="chart-box tall"><canvas id="fieldChart" height="420"></canvas></div>
+
+      <details class="mapping">
+        <summary>ESI field → representative WoS category (5 Q1 journals each)</summary>
+        <div class="table-wrap">
+          <table class="data-table compact">
+            <thead><tr><th>ESI field</th><th>WoS category</th><th class="num">Journals</th></tr></thead>
+            <tbody id="mappingBody"></tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- FILES -->
+  <section class="section" id="files">
+    <div class="container">
+      <h2 class="section-title">Released files</h2>
+      <p class="section-lead">Apache Parquet tables covering citation events, publication metadata, and normalized scholarly entities.</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>File</th><th class="num">Rows</th><th class="num">Cols</th><th>Description</th></tr></thead>
+          <tbody id="filesBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCESS -->
+  <section class="section alt" id="access">
+    <div class="container">
+      <h2 class="section-title">Access &amp; citation</h2>
+      <div class="access-grid">
+        <a class="access-card" href="https://doi.org/10.5281/zenodo.20796923" target="_blank" rel="noopener">
+          <h4>Zenodo · Version 3</h4>
+          <p>Official archived release of the Parquet dataset files.</p>
+          <span class="access-link">10.5281/zenodo.20796923 →</span>
+        </a>
+        <a class="access-card" href="https://huggingface.co/datasets/Daniel0315/IDCite" target="_blank" rel="noopener">
+          <h4>Hugging Face</h4>
+          <p>Processed dataset mirror for direct loading with Arrow-compatible tools.</p>
+          <span class="access-link">datasets/Daniel0315/IDCite →</span>
+        </a>
+        <a class="access-card" href="https://github.com/SeohyunNam/MDCite" target="_blank" rel="noopener">
+          <h4>Construction pipeline</h4>
+          <p>Python workflows for collection, harvesting, annotation, and validation.</p>
+          <span class="access-link">SeohyunNam/MDCite →</span>
+        </a>
+        <a class="access-card" href="https://citation-hub-website.vercel.app" target="_blank" rel="noopener">
+          <h4>CitationHub</h4>
+          <p>Interactive dashboard and visualization platform powered by IDCite.</p>
+          <span class="access-link">citation-hub-website.vercel.app →</span>
+        </a>
+      </div>
+
+      <div class="cite-block">
+        <div class="cite-head">
+          <h4>Cite this dataset</h4>
+          <button id="copyCite" class="copy-btn" type="button">Copy BibTeX</button>
+        </div>
+<pre id="bibtex">@dataset{idcite2026,
+  title     = {IDCite: A Large-Scale Multidisciplinary Citation Intent Dataset for Scholarly Knowledge Discovery},
+  author    = {Nam, Seohyun},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.20796923}
+}</pre>
+      </div>
+
+      <div class="release-lineage">
+        <h4>Release lineage</h4>
+        <ul>
+          <li><strong>Concept DOI</strong> (all versions) — 10.5281/zenodo.18410049</li>
+          <li><strong>v1 · MDCite</strong> — 10.5281/zenodo.18410050</li>
+          <li><strong>v2 · MDContextCite / EdgeCite</strong> — 10.5281/zenodo.18536895</li>
+          <li><strong>v3 · IDCite</strong> — 10.5281/zenodo.20796923</li>
+        </ul>
+      </div>
+
+      <div class="doc-block">
+        <div class="doc-icon">PDF</div>
+        <div class="doc-body">
+          <h4>Project &amp; Dataset Documentation</h4>
+          <p>The complete Version 3 reference — dataset design, release lineage, data sources, construction pipeline, schema definitions, sampling strategy, intent annotation, normalized entities, reproducibility, and responsible-use guidance.</p>
+          <a class="doc-link" href="IDCite_Project_and_Dataset_Documentation_Seohyun_Nam.pdf" target="_blank" rel="noopener">Open documentation (PDF) →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <div class="brand"><span class="brand-mark">ID</span><span class="brand-text">Cite</span></div>
+      <p class="muted">A Large-Scale Multidisciplinary Citation Intent Dataset for Scholarly Knowledge Discovery</p>
+    </div>
+    <div class="footer-cols">
+      <div>
+        <h5>Data</h5>
+        <a href="https://doi.org/10.5281/zenodo.20796923" target="_blank" rel="noopener">Zenodo</a>
+        <a href="https://huggingface.co/datasets/Daniel0315/IDCite" target="_blank" rel="noopener">Hugging Face</a>
+      </div>
+      <div>
+        <h5>Code</h5>
+        <a href="https://github.com/SeohyunNam/MDCite" target="_blank" rel="noopener">Pipeline</a>
+        <a href="https://citation-hub-website.vercel.app" target="_blank" rel="noopener">CitationHub</a>
+      </div>
+      <div>
+        <h5>Documentation</h5>
+        <a href="IDCite_Project_and_Dataset_Documentation_Seohyun_Nam.pdf" target="_blank" rel="noopener">Project &amp; Dataset PDF</a>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-copy">© 2026 Seohyun Nam · CC BY 4.0</div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
