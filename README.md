@@ -1,8 +1,8 @@
 # IDCite 
 
-overview website for **IDCite: A Large-Scale Multidisciplinary Citation Intent Dataset for Scholarly Knowledge Discovery.**
+Project website for **IDCite: A Large-Scale Multidisciplinary Citation Intent Dataset for Scholarly Knowledge Discovery.**
 
-## Website URL
+## Project Page
 
 **https://seohyunnam.github.io/IDCite-Website/**
 
