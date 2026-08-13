@@ -6,7 +6,7 @@ A single-page overview site for **IDCite: A Large-Scale Multidisciplinary Citati
 
 **https://seohyunnam.github.io/IDCite-Website/**
 
-## About
+## Abstract
 
 IDCite is a large-scale resource for citation-level analysis across multiple scientific disciplines. Seed publications were selected through a journal-stratified procedure covering 21 Essential Science Indicators (ESI) fields, 21 representative Web of Science categories, and 105 Q1 journals. The release contains 1,857,503 citation records linking 1,467,045 citing publications to 23,479 seed papers, together with citation contexts, citation-intent labels, publication metadata, normalized scholarly entities, and an ontology-ready knowledge graph of 3,418,433 nodes and 6,855,117 edges.
 
@@ -32,13 +32,10 @@ IDCite is a large-scale resource for citation-level analysis across multiple sci
 index.html                 Single-page overview
 assets/style.css           Styles
 assets/main.js             Charts and tables
-assets/pipeline_figure.png Construction-workflow figure (Figure 1)
+assets/pipeline_figure.png Construction-workflow figure 
 IDCite_Project_and_Dataset_Documentation_Seohyun_Nam.pdf
 ```
 
-## Deployment
-
-The site is served with GitHub Pages from the `main` branch (root). Any push to `main` rebuilds the site automatically.
 
 ## License
 
