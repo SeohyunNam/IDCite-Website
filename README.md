@@ -1,6 +1,6 @@
 # IDCite 
 
-Project website for **IDCite: A Large-Scale Multidisciplinary Citation Intent Dataset for Scholarly Knowledge Discovery.**
+Project Page for **IDCite: A Large-Scale Multidisciplinary Citation Intent Dataset for Scholarly Knowledge Discovery.**
 
 ## Project Page
 
