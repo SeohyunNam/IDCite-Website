@@ -21,7 +21,7 @@ IDCite is a large-scale resource for citation-level analysis across multiple sci
 
 ## Access
 
-- **Zenodo (Version 3):** https://doi.org/10.5281/zenodo.20796923
+- **Zenodo Record (Version 3):** https://doi.org/10.5281/zenodo.20796923
 - **Hugging Face:** https://huggingface.co/datasets/Daniel0315/IDCite
 - **Construction pipeline (code):** https://github.com/SeohyunNam/MDCite
 - **CitationHub (interactive platform):** https://citation-hub-website.vercel.app
