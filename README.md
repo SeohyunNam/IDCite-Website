@@ -4,6 +4,10 @@ Project Page for **IDCite: A Large-Scale Multidisciplinary Citation Intent Datas
 
 ## Project Page
 
+![IDCite project page](assets/preview.png)
+
+## Live site
+
 **https://seohyunnam.github.io/IDCite-Website/**
 
 ## Abstract
