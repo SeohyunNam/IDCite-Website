@@ -29,6 +29,7 @@ IDCite is a large-scale resource for citation-level analysis across multiple sci
 - **Hugging Face:** https://huggingface.co/datasets/Daniel0315/IDCite
 - **Construction pipeline (code):** https://github.com/SeohyunNam/MDCite
 - **CitationHub (interactive platform):** https://citation-hub-website.vercel.app
+- **CitationHub (public documentation):** https://github.com/SeohyunNam/CitationHub-System
 
 ## Repository contents
 

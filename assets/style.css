@@ -155,7 +155,8 @@ h1, h2, h3, h4, h5 { font-family: var(--serif); color: var(--ink); font-weight: 
 .access-card:hover { border-color: var(--primary); text-decoration: none; }
 .access-card h4 { margin: 0 0 8px; font-size: 17px; }
 .access-card p { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
-.access-link { color: var(--primary); font-weight: 600; font-size: 13.5px; font-family: var(--mono); }
+.access-link { display: inline-block; color: var(--primary); font-weight: 600; font-size: 13.5px; font-family: var(--mono); }
+.access-card .access-note { margin: 14px 0 8px; }
 
 .cite-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 30px; }
 .cite-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
