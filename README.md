@@ -29,7 +29,7 @@ Phan, T. A., Nam, S., & Jung, J. J. (2026). A data-driven comparative analysis o
 
 ## Public Access
 
-- **Zenodo Record (Version 3):** https://doi.org/10.5281/zenodo.20796923
+- **Zenodo Record (Version 4):** https://doi.org/10.5281/zenodo.23914564
 - **Dataset construction pipeline (code):** https://github.com/SeohyunNam/MDCite
 - **CitationHub (interactive platform):** https://citation-hub-website.vercel.app
 - **CitationHub (public documentation):** https://github.com/SeohyunNam/CitationHub-System

@@ -57,16 +57,18 @@
     ["citation_events_normalized.parquet", "1,857,503", 23, "Citation events with normalized intent & field IDs"],
     ["citing_papers.parquet", "1,467,045", 7, "Metadata of citing papers"],
     ["citing_papers_normalized.parquet", "1,467,045", 8, "Citing papers with normalized journal IDs"],
-    ["seed_cited_papers.parquet", "23,479", 42, "Highly cited seed-paper metadata"],
-    ["seed_cited_papers_normalized.parquet", "23,479", 48, "Seed papers with normalized entity IDs"],
-    ["authors.parquet", "16,839", 2, "Author ID–name mapping"],
-    ["affiliations.parquet", "5,271", 2, "Affiliation ID–name mapping"],
-    ["affiliation_geo.parquet", "5,352", 6, "Affiliation, city & country mappings"],
-    ["cities.parquet", "1,899", 2, "City ID–name mapping"],
-    ["countries.parquet", "108", 2, "Country ID–name mapping"],
-    ["journals.parquet", "46,237", 2, "Journal ID–name mapping"],
+    ["seed_cited_papers.parquet", "23,479", 32, "Highly cited seed-paper metadata (OpenAlex)"],
+    ["seed_cited_papers_normalized.parquet", "23,479", 38, "Seed papers with normalized entity IDs"],
+    ["authors.parquet", "19,865", 2, "Author ID–name mapping"],
+    ["affiliations.parquet", "4,074", 2, "Affiliation ID–name mapping"],
+    ["affiliation_geo.parquet", "4,088", 6, "Affiliation, city & country mappings"],
+    ["cities.parquet", "1,760", 2, "City ID–name mapping"],
+    ["countries.parquet", "120", 2, "Country ID–name mapping"],
+    ["journals.parquet", "46,234", 2, "Journal ID–name mapping"],
     ["fields.parquet", "21", 3, "Field ID–name mapping"],
-    ["intents.parquet", "31", 2, "Citation intent ID–name mapping"]
+    ["intents.parquet", "31", 2, "Citation intent ID–name mapping"],
+    ["kg_nodes.parquet", "3,420,132", 14, "Knowledge-graph nodes"],
+    ["kg_edges.parquet", "6,851,623", 3, "Typed knowledge-graph edges"]
   ];
 
   /* ---------- Populate tables ---------- */
