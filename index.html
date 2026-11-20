@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-<link rel="stylesheet" href="assets/style.css?v=footer4" />
+<link rel="stylesheet" href="assets/style.css?v=paper1" />
 </head>
 <body>
 <header class="nav" id="top">
@@ -18,6 +18,7 @@
       <span class="brand-mark">ID</span><span class="brand-text">Cite</span>
     </a>
     <nav class="nav-links">
+      <a href="#paper">Paper</a>
       <a href="#overview">Overview</a>
       <a href="#pipeline">Pipeline</a>
       <a href="#intents">Intents</a>
@@ -42,13 +43,42 @@
         Indicators (ESI) fields, 21 representative Web of Science categories, and 105 Q1 journals. The
         release contains <strong>1,857,503 citation records</strong> linking <strong>1,467,045 citing publications</strong>
         to <strong>23,479 seed papers</strong>, together with citation contexts, intent labels, publication metadata,
-        normalized entities, and an ontology-ready knowledge graph of 3,418,433 nodes and 6,855,117 edges.
+        normalized entities, and an ontology-ready knowledge graph of 3,420,132 nodes and 6,851,623 edges.
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://doi.org/10.5281/zenodo.20796923" target="_blank" rel="noopener">Zenodo Record</a>
-        <a class="btn" href="https://huggingface.co/datasets/Daniel0315/IDCite" target="_blank" rel="noopener">Hugging Face</a>
         <a class="btn" href="https://github.com/SeohyunNam/MDCite" target="_blank" rel="noopener">GitHub Code</a>
       </div>
+    </div>
+  </section>
+
+  <!-- PAPER -->
+  <section class="section paper" id="paper">
+    <div class="container paper-inner">
+      <div class="paper-links">
+        <a class="pill" href="https://doi.org/10.1371/journal.pone.0358327" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.4l-9.3 9.3-1.4-1.4L17.6 5H14V3zM5 5h6v2H5v12h12v-6h2v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
+          <span>Paper</span>
+        </a>
+        <a class="pill" href="https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0358327&amp;type=printable" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V9h5.5L13 3.5zM8 13v2h8v-2H8zm0 4v2h5v-2H8z"/></svg>
+          <span>PDF</span>
+        </a>
+        <a class="pill" href="https://doi.org/10.5281/zenodo.20796923" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C7 2 3 3.8 3 6v12c0 2.2 4 4 9 4s9-1.8 9-4V6c0-2.2-4-4-9-4zm0 2c4.1 0 7 1.4 7 2s-2.9 2-7 2-7-1.4-7-2 2.9-2 7-2zM5 9.1C6.7 9.7 9.2 10 12 10s5.3-.3 7-.9V12c0 .6-2.9 2-7 2s-7-1.4-7-2V9.1zm0 6C6.7 15.7 9.2 16 12 16s5.3-.3 7-.9V18c0 .6-2.9 2-7 2s-7-1.4-7-2v-2.9z"/></svg>
+          <span>Data (IDCite)</span>
+        </a>
+      </div>
+
+
+      <h3 class="paper-h">Relation to IDCite</h3>
+      <p class="paper-abstract">
+        This paper introduces the SciBERT-based citation-intent classifier used by IDCite. Each citation context is
+        encoded with SciBERT, and the <code>[CLS]</code> representation feeds a multi-label classifier trained with
+        binary cross-entropy (0.5 decision threshold) and fine-tuned on the MultiCite benchmark. IDCite uses this
+        classifier to generate the citation-intent labels for all 1,857,503 citation records.
+      </p>
+
     </div>
   </section>
 
@@ -79,11 +109,11 @@
       </figure>
 
       <div class="sources-row">
-        <span class="src-chip">Scopus <em>metadata</em></span>
+        <span class="src-chip">Scopus <em>citation counts (seed ranking)</em></span>
         <span class="src-chip">WoS / 2024 JCR <em>journal selection</em></span>
-        <span class="src-chip">OpenAlex <em>citation links</em></span>
+        <span class="src-chip">OpenAlex <em>citation links &amp; seed metadata</em></span>
         <span class="src-chip">Semantic Scholar <em>citation contexts</em></span>
-        <span class="src-chip">SynIntent <em>intent classifier (GNN)</em></span>
+        <span class="src-chip">SciBERT <em>citation intent classifier</em></span>
       </div>
 
       <ol class="pipeline">
@@ -91,7 +121,7 @@
         <li><span class="step-n">2</span><div><h4>Seed-paper selection</h4><p>Top 5% most-cited papers retained independently within each journal → 23,479 seed papers.</p></div></li>
         <li><span class="step-n">3</span><div><h4>Citation harvesting</h4><p>OpenAlex citation links connect 1.47M citing papers to the seed corpus.</p></div></li>
         <li><span class="step-n">4</span><div><h4>Citation-event construction</h4><p>Each citing → seed link becomes an event carrying its citation context.</p></div></li>
-        <li><span class="step-n">5</span><div><h4>Semantic enrichment</h4><p>SynIntent (GNN-based) assigns citation intents as weak semantic supervision.</p></div></li>
+        <li><span class="step-n">5</span><div><h4>Semantic enrichment</h4><p>A SciBERT-based classifier fine-tuned on MultiCite (<a href="#paper">Phan et al., 2026</a>) assigns multi-label citation intents.</p></div></li>
         <li><span class="step-n">6</span><div><h4>Entity normalization</h4><p>DOIs, authors, affiliations, journals, fields, and intents are normalized.</p></div></li>
       </ol>
     </div>
@@ -117,7 +147,7 @@
               <tr><td><span class="dot i6"></span>extends</td><td class="num">2,813</td><td class="num">0.15</td></tr>
             </tbody>
           </table>
-          <p class="note">Intent labels are model-generated (SynIntent, Strict Acc. 0.67 / Weak Acc. 0.80 on MultiCite) and released as weak supervision — not manually curated gold labels.</p>
+          <p class="note">Intent labels are model-generated by a SciBERT-based classifier (Strict 0.66 / Weak 0.79 on MultiCite). A human evaluation of 4,184 citation contexts gave 69.93% strict and 88.10% weak agreement (micro-F1 0.8122, macro-F1 0.8140). Labels are not manually curated gold labels.</p>
         </div>
       </div>
     </div>
@@ -166,11 +196,6 @@
           <p>Official archived release of the Parquet dataset files.</p>
           <span class="access-link">10.5281/zenodo.20796923 →</span>
         </a>
-        <a class="access-card" href="https://huggingface.co/datasets/Daniel0315/IDCite" target="_blank" rel="noopener">
-          <h4>Hugging Face</h4>
-          <p>Processed dataset mirror for direct loading with Arrow-compatible tools.</p>
-          <span class="access-link">datasets/Daniel0315/IDCite →</span>
-        </a>
         <a class="access-card" href="https://github.com/SeohyunNam/MDCite" target="_blank" rel="noopener">
           <h4>Dataset Construction pipeline</h4>
           <p>Python workflows for collection, harvesting, annotation, and validation.</p>
@@ -188,7 +213,7 @@
       <div class="cite-block">
         <div class="cite-head">
           <h4>Cite this dataset</h4>
-          <button id="copyCite" class="copy-btn" type="button">Copy BibTeX</button>
+          <button id="copyCite" class="copy-btn" type="button" data-copy="bibtex">Copy BibTeX</button>
         </div>
 <pre id="bibtex">@dataset{idcite2026,
   title     = {IDCite: A Large-Scale Multidisciplinary Citation Intent Dataset for Scholarly Knowledge Discovery},
@@ -230,9 +255,7 @@
     <div class="footer-cols">
       <div>
         <h5>Data</h5>
-        <a href="https://doi.org/10.5281/zenodo.20796923" target="_blank" rel="noopener">Zenodo</a>
-        <a href="https://huggingface.co/datasets/Daniel0315/IDCite" target="_blank" rel="noopener">Hugging Face</a>
-      </div>
+        <a href="https://doi.org/10.5281/zenodo.20796923" target="_blank" rel="noopener">Zenodo</a>      </div>
       <div>
         <h5>Code</h5>
         <a href="https://github.com/SeohyunNam/MDCite" target="_blank" rel="noopener">Pipeline</a>

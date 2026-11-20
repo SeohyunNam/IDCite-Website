@@ -106,6 +106,17 @@ h1, h2, h3, h4, h5 { font-family: var(--serif); color: var(--ink); font-weight: 
 .value-card h3 { margin: 0 0 8px; font-size: 18px; }
 .value-card p { margin: 0; color: var(--muted); font-size: 14.5px; }
 
+/* PAPER (project-page style) */
+.paper { border-bottom: 1px solid var(--border); }
+.paper-inner { max-width: 860px; text-align: center; }
+.paper-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 0 0 8px; }
+.pill { display: inline-flex; align-items: center; gap: 8px; padding: 9px 20px; border-radius: 999px; background: #363636; color: #fff; font-weight: 500; font-size: 15px; transition: background 0.15s; }
+.pill:hover { background: #1f1f1f; color: #fff; text-decoration: none; }
+.pill svg { width: 17px; height: 17px; fill: currentColor; }
+.paper-h { font-size: 26px; margin: 46px 0 14px; }
+.paper-abstract { text-align: justify; font-size: 16px; line-height: 1.7; margin: 0; color: var(--text); }
+.paper-abstract code { font-family: var(--mono); font-size: 13.5px; background: var(--surface-2); padding: 1px 5px; border-radius: 4px; }
+
 /* SOURCES / PIPELINE */
 .pipeline-figure { margin: 0 0 36px; padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); text-align: center; }
 .pipeline-figure img { max-width: 620px; width: 100%; height: auto; }
@@ -150,7 +161,7 @@ h1, h2, h3, h4, h5 { font-family: var(--serif); color: var(--ink); font-weight: 
 .mapping .table-wrap { margin-top: 12px; }
 
 /* ACCESS */
-.access-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 40px; }
+.access-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 40px; }
 .access-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: border-color 0.15s; }
 .access-card:hover { border-color: var(--primary); text-decoration: none; }
 .access-card h4 { margin: 0 0 8px; font-size: 17px; }
@@ -201,4 +212,5 @@ h1, h2, h3, h4, h5 { font-family: var(--serif); color: var(--ink); font-weight: 
   .stat-grid, .value-grid { grid-template-columns: 1fr; }
   .section { padding: 48px 0; }
   .hero { padding: 60px 0 48px; }
+  .paper-abstract { text-align: left; }
 }

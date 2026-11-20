@@ -180,14 +180,15 @@
 
   /* ---------- Copy BibTeX ---------- */
   function copyCite() {
-    var btn = document.getElementById("copyCite");
-    var pre = document.getElementById("bibtex");
-    if (!btn || !pre) return;
-    btn.addEventListener("click", function () {
-      navigator.clipboard.writeText(pre.textContent).then(function () {
-        var original = btn.textContent;
-        btn.textContent = "Copied";
-        setTimeout(function () { btn.textContent = original; }, 1600);
+    document.querySelectorAll("[data-copy]").forEach(function (btn) {
+      var pre = document.getElementById(btn.getAttribute("data-copy"));
+      if (!pre) return;
+      btn.addEventListener("click", function () {
+        navigator.clipboard.writeText(pre.textContent).then(function () {
+          var original = btn.textContent;
+          btn.textContent = "Copied";
+          setTimeout(function () { btn.textContent = original; }, 1600);
+        });
       });
     });
   }
